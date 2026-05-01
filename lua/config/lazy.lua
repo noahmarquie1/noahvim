@@ -20,6 +20,31 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import/override with your plugins
     { import = "plugins" },
+
+    -- My packages
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    {
+      "zbirenbaum/copilot.lua",
+      cmd = "Copilot",
+      event = "InsertEnter",
+      config = function()
+        vim.g.copilot_auto_trigger = true -- Initialize the toggle state
+
+        require("copilot").setup({
+          suggestion = {
+            enabled = true,
+            auto_trigger = true,
+            keymap = {
+              accept = "<M-l>",
+              next = "<M-]>",
+              prev = "<M-[>",
+              dismiss = "<C-]>",
+            },
+          },
+          panel = { enabled = false },
+        })
+      end,
+    },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
@@ -30,7 +55,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "tokyonight", "habamax" } },
+  install = { colorscheme = { "tokyonight", "habamax", "catppuccin" } },
   checker = {
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update
@@ -51,3 +76,5 @@ require("lazy").setup({
     },
   },
 })
+
+vim.cmd.colorscheme("catppuccin-frappe")
