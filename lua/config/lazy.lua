@@ -23,28 +23,6 @@ require("lazy").setup({
 
     -- My packages
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-    {
-      "zbirenbaum/copilot.lua",
-      cmd = "Copilot",
-      event = "InsertEnter",
-      config = function()
-        vim.g.copilot_auto_trigger = true -- Initialize the toggle state
-
-        require("copilot").setup({
-          suggestion = {
-            enabled = true,
-            auto_trigger = true,
-            keymap = {
-              accept = "<M-l>",
-              next = "<M-]>",
-              prev = "<M-[>",
-              dismiss = "<C-]>",
-            },
-          },
-          panel = { enabled = false },
-        })
-      end,
-    },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
