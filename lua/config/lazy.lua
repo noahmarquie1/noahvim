@@ -28,7 +28,7 @@ require("lazy").setup({
       dependencies = {
         { "nvim-telescope/telescope.nvim", version = "*", dependencies = { "nvim-lua/plenary.nvim" } }, -- optional: you can also use fzf-lua, snacks, mini-pick instead.
       },
-      ft = "python", -- Load when opening Python files
+      cmd="VenvSelect",
       keys = { { ",v", "<cmd>VenvSelect<cr>" } }, -- Open picker on keymap
       opts = {
         options = { notify_user_on_activate = true, }, -- plugin-wide options
